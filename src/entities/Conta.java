@@ -1,11 +1,21 @@
 package entities;
 
+import java.util.Date;
+
 public class Conta {
     private String nomeDoTitular;
     private String agencia;
     private int numeroDaConta;
     private String dataDeAbertura;
     private double saldo;
+
+    public Conta(String nomeDoTitular, String agencia, int numeroDaConta) {
+        this.nomeDoTitular = nomeDoTitular;
+        this.agencia = agencia;
+        this.numeroDaConta = numeroDaConta;
+        Date data = new Date(System.currentTimeMillis());
+        this.dataDeAbertura = data.toString();
+    }
 
     public String getNomeDoTitular() {
         return nomeDoTitular;
@@ -47,7 +57,7 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public boolean sacar(int quant){
+    public boolean sacar(double quant){
         if(quant<this.saldo){
             this.saldo-=quant;
           return true;
@@ -55,14 +65,14 @@ public class Conta {
     return false;
     }
 
-    public boolean depositar(int quant){
+    public boolean depositar(double quant){
         if(quant>0){
             this.saldo+=quant;
             return true;
         }
     return false;
     }
-    public void trasferir(Conta contaBeneficada, int quant){
+    public void trasferir(Conta contaBeneficada, double quant){
         if( quant>0){
             contaBeneficada.depositar(quant);
         }
