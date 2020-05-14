@@ -36,6 +36,33 @@ public class ContaCorrente extends Conta{
     }
 
     @Override
+    public boolean sacar(double value) {
+        if(value<this.getSaldo()){
+            this.setSaldo(this.getSaldo()-value);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean depositar(double value) {
+        if(value>0){
+            this.setSaldo(this.getSaldo()+value);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean trasferir(Conta contaBeneficada, double value) {
+        if(value>0&&value<this.getSaldo()){
+            this.sacar(value);
+            contaBeneficada.depositar(value);
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "\n\nCONTA BANCARIA" +
                 "\nNome do Titular: "+ this.getNomeDoTitular()+

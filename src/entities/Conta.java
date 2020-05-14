@@ -47,28 +47,9 @@ public abstract class Conta {
         this.saldo = saldo;
     }
 
-    public boolean sacar(double quant){
-        if(quant<this.saldo){
-            this.saldo-=quant;
-          return true;
-        }
-    return false;
-    }
-
-    public boolean depositar(double quant){
-        if(quant>0){
-            this.saldo+=quant;
-            return true;
-        }
-    return false;
-    }
-
-    public void trasferir(Conta contaBeneficada, double quant){
-        if(quant>0&&quant<this.saldo){
-            this.sacar(quant);
-            contaBeneficada.depositar(quant);
-        }
-    }
+    public abstract boolean sacar(double value);
+    public abstract boolean depositar(double value);
+    public abstract boolean trasferir(Conta conta, double value);
 
     public abstract String toString();
 
