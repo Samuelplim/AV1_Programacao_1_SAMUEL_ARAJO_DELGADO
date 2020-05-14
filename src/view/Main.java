@@ -10,7 +10,12 @@ public class Main {
         contaTeste.depositar(2222);
         contaTeste.sacar(1000);
 
+        System.out.println(contaTeste.toString());
+
         Conta contaTeste1 = new Conta("Spotify-ID:0123555","Itau",135578);
         contaTeste.trasferir(contaTeste1,16.50);
+
+        System.out.println(contaTeste.toString());
+        System.out.println(contaTeste1.toString());
     }
 }

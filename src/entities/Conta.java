@@ -72,9 +72,21 @@ public class Conta {
         }
     return false;
     }
+
     public void trasferir(Conta contaBeneficada, double quant){
-        if( quant>0){
+        if(quant>0&&quant<this.saldo){
+            this.sacar(quant);
             contaBeneficada.depositar(quant);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "\n\nCONTA BANCARIA" +
+                "\nNome do Titular: "+ this.nomeDoTitular+
+                "\nAgencia: "+this.agencia+
+                "\nN° da Conta: "+this.numeroDaConta+
+                "\nSaldo: "+this.saldo+
+                "\nData de Abertura: "+this.dataDeAbertura;
     }
 }
