@@ -1,0 +1,49 @@
+package entities;
+
+import java.util.Date;
+
+public class ContaCorrente extends Conta{
+    private double taxaAdministracao;
+    private double limite;
+
+
+
+    public ContaCorrente(String nomeDoTitular, String agencia, int numeroDaConta, double taxaAdministracao, double limite) {
+        this.setNomeDoTitular(nomeDoTitular);
+        this.setAgencia(agencia);
+        this.setNumeroDaConta(numeroDaConta);
+        this.taxaAdministracao = taxaAdministracao;
+        this.limite = limite;
+        Date data = new Date(System.currentTimeMillis());
+        this.setDataDeAbertura(data.toString());
+    }
+
+
+    public double getTaxaAdministracao() {
+        return taxaAdministracao;
+    }
+
+    public void setTaxaAdministracao(double taxaAdministracao) {
+        this.taxaAdministracao = taxaAdministracao;
+    }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public void setLimite(double limite) {
+        this.limite = limite;
+    }
+
+    @Override
+    public String toString() {
+        return "\n\nCONTA BANCARIA" +
+                "\nNome do Titular: "+ this.getNomeDoTitular()+
+                "\nAgencia: "+this.getAgencia()+
+                "\nN° da Conta: "+this.getNumeroDaConta()+
+                "\nSaldo: "+this.getSaldo()+
+                "\nData de Abertura: "+this.getDataDeAbertura()+
+                "\nTaxa de adiministração: "+this.taxaAdministracao+
+                "\nLimite: "+this.limite;
+    }
+}

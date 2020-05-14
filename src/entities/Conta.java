@@ -1,21 +1,11 @@
 package entities;
 
-import java.util.Date;
-
-public class Conta {
+public abstract class Conta {
     private String nomeDoTitular;
     private String agencia;
     private int numeroDaConta;
     private String dataDeAbertura;
     private double saldo;
-
-    public Conta(String nomeDoTitular, String agencia, int numeroDaConta) {
-        this.nomeDoTitular = nomeDoTitular;
-        this.agencia = agencia;
-        this.numeroDaConta = numeroDaConta;
-        Date data = new Date(System.currentTimeMillis());
-        this.dataDeAbertura = data.toString();
-    }
 
     public String getNomeDoTitular() {
         return nomeDoTitular;
@@ -80,13 +70,6 @@ public class Conta {
         }
     }
 
-    @Override
-    public String toString() {
-        return "\n\nCONTA BANCARIA" +
-                "\nNome do Titular: "+ this.nomeDoTitular+
-                "\nAgencia: "+this.agencia+
-                "\nN° da Conta: "+this.numeroDaConta+
-                "\nSaldo: "+this.saldo+
-                "\nData de Abertura: "+this.dataDeAbertura;
-    }
+    public abstract String toString();
+
 }
