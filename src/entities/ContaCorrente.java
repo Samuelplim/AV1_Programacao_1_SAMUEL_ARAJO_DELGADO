@@ -36,30 +36,38 @@ public class ContaCorrente extends Conta implements Tributavel{
     }
 
     @Override
-    public boolean sacar(double value) {
-        if(value<this.getSaldo()){
+    public boolean sacar(double value) throws Exception{
+        if(value>this.getSaldo()){
+            throw new Exception("Valor de saque maior que o disponivel");
+
+        }else {
             this.setSaldo(this.getSaldo()-value);
             return true;
         }
-        return false;
+
     }
 
     @Override
-    public boolean depositar(double value) {
-        if(value>0){
-            this.setSaldo(this.getSaldo()+value);
+    public boolean depositar(double value) throws Exception {
+        if(value<=0){
+            throw new Exception("Valor não pode ser igual ou menor que 0");
+        }else {
+            this.setSaldo(this.getSaldo() + value);
             return true;
         }
-        return false;
     }
 
     @Override
-    public boolean trasferir(Conta contaBeneficada, double value) {
-        if(value>0&&value<this.getSaldo()){
+    public boolean trasferir(Conta contaBeneficada, double value)  throws Exception{
+        if(value<=0){
+            throw new Exception("Valor não pode ser igual ou menor que 0");
+        }else if(value>this.getSaldo()){
+            throw new Exception("Valor de transferencia maior que o disponivel");
+        }else {
             this.sacar(value);
             contaBeneficada.depositar(value);
+            return true;
         }
-        return false;
     }
 
     @Override

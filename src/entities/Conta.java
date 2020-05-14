@@ -47,9 +47,9 @@ public abstract class Conta {
         this.saldo = saldo;
     }
 
-    public abstract boolean sacar(double value);
-    public abstract boolean depositar(double value);
-    public abstract boolean trasferir(Conta conta, double value);
+    public abstract boolean sacar(double value) throws Exception;
+    public abstract boolean depositar(double value) throws Exception;
+    public abstract boolean trasferir(Conta conta, double value) throws Exception;
 
     public abstract String toString();
 
