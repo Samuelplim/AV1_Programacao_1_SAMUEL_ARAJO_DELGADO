@@ -4,10 +4,22 @@ import entities.Conta;
 import entities.ContaCorrente;
 import entities.ContaPoupanca;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
 public class Main {
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args){
+        MenuPrincipal menuPrincipal = new  MenuPrincipal();
+        JFrame jFrame = new JFrame("Conta bancaria");
+        jFrame.setSize(1000,800);
+        jFrame.setDefaultCloseOperation(3);
+        jFrame.add(menuPrincipal);
+        jFrame.show();
+
+        /*
         ContaPoupanca contaTeste = new ContaPoupanca("Samuel Delgado", "Banco do Brasil", 878,
                 3.6,28);
 
@@ -25,7 +37,7 @@ public class Main {
             System.out.println(e);
         }
         System.out.println(contaTeste.toString());
-        System.out.println(contaTeste1.toString()+"\nImposto a ser pago: "+contaTeste1.getValorImposto());
+        System.out.println(contaTeste1.toString()+"\nImposto a ser pago: "+contaTeste1.getValorImposto());*/
 
     }
 }
