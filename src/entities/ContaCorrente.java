@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Date;
 
-public class ContaCorrente extends Conta{
+public class ContaCorrente extends Conta implements Tributavel{
     private double taxaAdministracao;
     private double limite;
 
@@ -72,5 +72,10 @@ public class ContaCorrente extends Conta{
                 "\nData de Abertura: "+this.getDataDeAbertura()+
                 "\nTaxa de adiministração: "+this.taxaAdministracao+
                 "\nLimite: "+this.limite;
+    }
+
+    @Override
+    public double getValorImposto() {
+        return 0.01*getSaldo();
     }
 }

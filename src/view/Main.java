@@ -7,11 +7,7 @@ import entities.ContaPoupanca;
 public class Main {
 
     public static void main(String[] args) {
-        /*
-        * Questão 7
-        * Na Classe Conta, foram deixados os metodos getter's e setter's dos atribudos para acesso e manibulação
-        * dos atribudos. Os metodos sacar(), depositar(), transferir() foram colocados com abstrados pois as classes
-        * possuem nescessitades diferentes do mesmo metodo.*/
+
         ContaPoupanca contaTeste = new ContaPoupanca("Samuel Delgado", "Banco do Brasil", 878,
                 3.6,28);
 
@@ -27,7 +23,7 @@ public class Main {
         contaTeste.trasferir(contaTeste1,16.50);
 
         System.out.println(contaTeste.toString());
-        System.out.println(contaTeste1.toString());
+        System.out.println(contaTeste1.toString()+"\nImposto a ser pago: "+contaTeste1.getValorImposto());
 
     }
 }
