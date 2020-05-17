@@ -51,6 +51,13 @@ public abstract class Conta {
     public abstract boolean depositar(double value) throws Exception;
     public abstract boolean trasferir(Conta conta, double value) throws Exception;
 
+    public boolean validAccont(String agencia, int numeroDaConta){
+        if(agencia.equals(this.agencia)&&numeroDaConta==this.numeroDaConta){
+            return true;
+        }
+        return false;
+    }
+
     public abstract String toString();
 
 }

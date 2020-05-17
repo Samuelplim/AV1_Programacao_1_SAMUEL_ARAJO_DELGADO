@@ -8,10 +8,11 @@ public class ContaPoupanca extends Conta{
 
 
 
-    public ContaPoupanca(String nomeDoTitular, String agencia, int numeroDaConta, double porcentagemRendimento, int diaRendimento) {
+    public ContaPoupanca(String nomeDoTitular, String agencia, int numeroDaConta, double saldo,double porcentagemRendimento, int diaRendimento) {
         this.setNomeDoTitular(nomeDoTitular);
         this.setAgencia(agencia);
         this.setNumeroDaConta(numeroDaConta);
+        this.setSaldo(saldo);
         this.porcentagemRendimento = porcentagemRendimento;
         this.diaRendimento = diaRendimento;
         Date data = new Date(System.currentTimeMillis());
@@ -36,6 +37,9 @@ public class ContaPoupanca extends Conta{
 
     @Override
     public boolean sacar(double value) throws Exception{
+        if(value<=0){
+            throw new Exception("Valor não pode ser igual ou menor que 0");
+        }else
         if(value>this.getSaldo()){
             throw new Exception("Valor de saque maior que o disponivel");
 
@@ -70,7 +74,7 @@ public class ContaPoupanca extends Conta{
 
     @Override
     public String toString() {
-        return "\n\nCONTA BANCARIA" +
+        return "CONTA BANCARIA" +
                 "\nNome do Titular: "+ this.getNomeDoTitular()+
                 "\nAgencia: "+this.getAgencia()+
                 "\nN° da Conta: "+this.getNumeroDaConta()+

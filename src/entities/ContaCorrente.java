@@ -8,10 +8,11 @@ public class ContaCorrente extends Conta implements Tributavel{
 
 
 
-    public ContaCorrente(String nomeDoTitular, String agencia, int numeroDaConta, double taxaAdministracao, double limite) {
+    public ContaCorrente(String nomeDoTitular, String agencia, int numeroDaConta,double saldo, double taxaAdministracao, double limite) {
         this.setNomeDoTitular(nomeDoTitular);
         this.setAgencia(agencia);
         this.setNumeroDaConta(numeroDaConta);
+        this.setSaldo(saldo);
         this.taxaAdministracao = taxaAdministracao;
         this.limite = limite;
         Date data = new Date(System.currentTimeMillis());
@@ -37,6 +38,9 @@ public class ContaCorrente extends Conta implements Tributavel{
 
     @Override
     public boolean sacar(double value) throws Exception{
+        if(value<=0){
+            throw new Exception("Valor não pode ser igual ou menor que 0");
+        }else
         if(value>this.getSaldo()){
             throw new Exception("Valor de saque maior que o disponivel");
 
@@ -72,7 +76,7 @@ public class ContaCorrente extends Conta implements Tributavel{
 
     @Override
     public String toString() {
-        return "\n\nCONTA BANCARIA" +
+        return "CONTA BANCARIA" +
                 "\nNome do Titular: "+ this.getNomeDoTitular()+
                 "\nAgencia: "+this.getAgencia()+
                 "\nN° da Conta: "+this.getNumeroDaConta()+
