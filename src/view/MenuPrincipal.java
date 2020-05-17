@@ -59,9 +59,9 @@ public class MenuPrincipal extends JPanel implements ActionListener{
     JLabel jLabelUserInfo = new JLabel();
     JLabel jLabelOp = new JLabel("Clique no BOTÃO para realizar a operação");
     JLabel jLabelAccAgTransf = new JLabel("Trasferencia Nº da agencia: ");
-    JTextField jTextFieldAccAgTransf = new JTextField();
+    JTextField jTextFieldAccAgTransf = new JTextField(10);
     JLabel jLabelNumAccTransf = new JLabel("N° da conta");
-    JTextField jTextFieldNumAccTransf = new JTextField();
+    JTextField jTextFieldNumAccTransf = new JTextField(10);
     JButton jButtonWithdraw = new JButton("SAQUE");
     JButton jButtonDeposit = new JButton("DEPOSITO");
     JButton jButtonTransfer = new JButton("TRANSFERÊNCIA");
@@ -213,9 +213,6 @@ public class MenuPrincipal extends JPanel implements ActionListener{
         }
 
         if(e.getSource() == buttonEntrar){
-
-            contas.add(new ContaPoupanca("Samuel Delgado","BB",123,
-                    5999, 0.8, 2));
             idAccount = searshAccontId(textFieldagencia.getText(), Integer.parseInt(txtFieldnConta.getText()));
             InitJoin(contas.get(idAccount));
 
